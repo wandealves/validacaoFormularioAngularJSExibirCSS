@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+    <head>
+        <title>Formulário de Contato</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body ng-controller="contactCtr as ctrl">
+        <div id="content">
+            <form id="form" ng-submit="ctrl.submit()" name="myForm">
+                <fieldset>
+                    <legend>Formulário</legend>
+                    <div class="divElement">
+                        <label class="formElementLabel">Nome:</label>
+                        <input type="text" name="uname" class="error"
+                               ng-model="ctrl.user.name" required ng-minlength="4">
+                    </div>
+
+                    <div class="divElement">
+                        <label class="formElementLabel">Email:</label>
+                        <input type="email" name="uemail" class="error"
+                               ng-model="ctrl.user.email" required>
+                    </div>
+
+                    <div class="divElement">
+                        <label id="lblMsg">Mensagem:</label>
+                        <textarea name="umsg" id="txtMsg" class="error" ng-model="ctrl.user.message" 
+                                  cols="35" rows="8" ng-maxlength="100"></textarea>
+                    </div>
+
+                    <input type="submit" class="btn_submit" 
+                           value="Enviar" ng-disabled="myForm.$invalid">
+
+                </fieldset>
+            </form>
+        </div>
+        <script src="js/angular.min.js" type="text/javascript"></script>
+        <script src="js/app/app.js" type="text/javascript"></script>
+        <script src="js/controller/controller.js" type="text/javascript"></script>
+    </body>
+</html>
